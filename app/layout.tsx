@@ -1,10 +1,17 @@
+
+import { Suspense } from "react";
 import type { Metadata } from "next";
+import Header from "@/components/layout/Header";
 import "./globals.css";
-import Header from "./components/layout/Header";
 
 export const metadata: Metadata = {
-  title: "HomeTrust - Buy, Sell & Rent Properties",
-  description: "Find your dream home with HomeTrust.",
+  title: {
+    default: "HomeTrust - Buy, Sell & Rent Properties",
+    template: "%s | HomeTrust",
+  },
+  description:
+    "Find your dream home with HomeTrust. Buy, sell and rent properties easily.",
+  metadataBase: new URL("https://homest.com"),
 };
 
 export default function RootLayout({
@@ -14,9 +21,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <Header />
-        {children}
+      <body className="min-h-screen bg-gray-50 antialiased">
+
+        {/* Responsive Header */}
+        <Suspense
+          fallback={
+            <header className="h-16 border-b bg-white" />
+          }
+        >
+          <Header />
+        </Suspense>
+
+        {/* Main Page Content */}
+        <div className="min-h-screen pb-20 md:pb-0">
+          {children}
+        </div>
+
       </body>
     </html>
   );
