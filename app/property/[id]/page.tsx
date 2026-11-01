@@ -1,25 +1,24 @@
-type Props = {
-  params: Promise<{ id: string }>;
+export const dynamic = "force-dynamic";
+
+type PropertyPageProps = {
+  params: Promise<{
+    id: string;
+  }>;
 };
 
-export default async function PropertyDetails({
+export default async function PropertyDetailsPage({
   params,
-}: Props) {
+}: PropertyPageProps) {
   const { id } = await params;
 
   return (
-    <main className="mx-auto max-w-7xl px-5 py-16">
-      <h1 className="text-4xl font-bold">
+    <main className="mx-auto max-w-7xl px-4 py-10">
+      <h1 className="text-3xl font-bold">
         Property Details
       </h1>
 
-      <p className="mt-4 text-gray-500">
+      <p className="mt-4 text-gray-600">
         Property ID: {id}
-      </p>
-
-      <p className="mt-5">
-        Property images, price, location, amenities
-        and owner details will appear here.
       </p>
     </main>
   );
