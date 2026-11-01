@@ -1,4 +1,5 @@
-export const dynamic = "force-dynamic";
+
+import { Suspense } from "react";
 
 type PropertyPageProps = {
   params: Promise<{
@@ -6,7 +7,8 @@ type PropertyPageProps = {
   }>;
 };
 
-export default async function PropertyDetailsPage({
+// Ye component property ID ko read karega
+async function PropertyDetails({
   params,
 }: PropertyPageProps) {
   const { id } = await params;
@@ -21,5 +23,24 @@ export default async function PropertyDetailsPage({
         Property ID: {id}
       </p>
     </main>
+  );
+}
+
+// Main page component
+export default function PropertyDetailsPage({
+  params,
+}: PropertyPageProps) {
+  return (
+    <Suspense
+      fallback={
+        <main className="mx-auto max-w-7xl px-4 py-10">
+          <p className="text-gray-500">
+            Loading property details...
+          </p>
+        </main>
+      }
+    >
+      <PropertyDetails params={params} />
+    </Suspense>
   );
 }
