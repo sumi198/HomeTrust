@@ -41,11 +41,106 @@ To learn more about Next.js, take a look at the following resources:
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are 
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# HomeTrust
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+HomeTrust/
+│
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── globals.css
+│   │
+│   ├── buy/
+│   │   └── page.tsx
+│   ├── rent/
+│   │   └── page.tsx
+│   ├── map/
+│   │   └── page.tsx
+│   ├── property/
+│   │   └── [id]/
+│   │       └── page.tsx
+│   │
+│   ├── list-property/
+│   │   └── page.tsx
+│   │
+│   ├── login/
+│   │   └── page.tsx
+│   ├── register/
+│   │   └── page.tsx
+│   │
+│   ├── customer/
+│   │   └── dashboard/
+│   │       └── page.tsx
+│   │
+│   ├── seller/
+│   │   └── dashboard/
+│   │       └── page.tsx
+│   │
+│   ├── admin/
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   ├── properties/
+│   │   │   ├── page.tsx
+│   │   │   ├── new/
+│   │   │   │   └── page.tsx
+│   │   │   └── [id]/
+│   │   │       └── page.tsx
+│   │   ├── users/
+│   │   │   └── page.tsx
+│   │   └── enquiries/
+│   │       └── page.tsx
+│   │
+│   └── api/
+│       ├── properties/
+│       │   └── route.ts
+│       ├── enquiries/
+│       │   └── route.ts
+│       └── admin/
+│           └── properties/
+│               └── route.ts
+│
+├── components/
+│   ├── layout/
+│   │   ├── Header.tsx
+│   │   ├── Footer.tsx
+│   │   └── MobileNavigation.tsx
+│   ├── property/
+│   │   ├── PropertyCard.tsx
+│   │   ├── PropertyGrid.tsx
+│   │   └── PropertyFilters.tsx
+│   └── admin/
+│       ├── AdminSidebar.tsx
+│       └── AdminHeader.tsx
+│
+├── lib/
+│   ├── prisma.ts
+│   ├── auth.ts
+│   ├── permissions.ts
+│   └── validations/
+│
+├── prisma/
+│   └── schema.prisma
+│
+├── public/
+│
+├── next.config.ts
+├── package.json
+└── pnpm-lock.yaml
