@@ -1,6 +1,20 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
+PS E:\Testing\2-nov> git clone https://github.com/sumi198/HomeTrust.git
+Cloning into 'HomeTrust'...
+remote: Enumerating objects: 57, done.
+remote: Counting objects: 100% (57/57), done.
+remote: Compressing objects: 100% (47/47), done.
+remote: Total 57 (delta 12), reused 34 (delta 1), pack-reused 0 (from 0)
+Receiving objects: 100% (57/57), 60.56 KiB | 291.00 KiB/s, done.
+Resolving deltas: 100% (12/12), done.
+PS E:\Testing\2-nov> cd .\HomeTrust\
+PS E:\Testing\2-nov\HomeTrust> pnpm install
+Lockfile is up to date, resolution step is skipped
+Packages: +353
+
+
 
 First, run the development server:
 
