@@ -1,153 +1,131 @@
+// import Link from "next/link";
+// import { Building2, Menu, PlusCircle } from "lucide-react";
 
-"use client";
+// const navigation = [
+//   { label: "Home", href: "/" },
+//   { label: "Buy", href: "/buy" },
+//   { label: "Rent", href: "/rent" },
+//   { label: "Map", href: "/map" },
+// ];
+
+// export default function Header() {
+//   return (
+//     <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/95 backdrop-blur">
+//       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4">
+//         <Link href="/" className="flex items-center gap-2">
+//           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-700 text-white">
+//             <Building2 size={23} />
+//           </span>
+//           <span className="text-2xl font-extrabold tracking-tight text-gray-900">
+//             Home<span className="text-emerald-700">Trust</span>
+//           </span>
+//         </Link>
+
+//         <nav className="hidden items-center gap-8 md:flex">
+//           {navigation.map((item) => (
+//             <Link
+//               key={item.href}
+//               href={item.href}
+//               className="text-sm font-semibold text-gray-600 transition hover:text-emerald-700"
+//             >
+//               {item.label}
+//             </Link>
+//           ))}
+//         </nav>
+
+//         <div className="hidden items-center gap-3 md:flex">
+//           <Link
+//             href="/login"
+//             className="rounded-xl px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100"
+//           >
+//             Login
+//           </Link>
+
+//           <Link
+//             href="/list-property"
+//             className="flex items-center gap-2 rounded-xl bg-emerald-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-emerald-800"
+//           >
+//             <PlusCircle size={17} />
+//             List Property
+//           </Link>
+//         </div>
+
+//         <Link
+//           href="/list-property"
+//           aria-label="List your property"
+//           className="rounded-xl bg-emerald-700 p-3 text-white md:hidden"
+//         >
+//           <Menu size={22} />
+//         </Link>
+//       </div>
+//     </header>
+//   );
+// }
+
+
+
+
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Building2, MapPin } from "lucide-react";
 
-import {
-  House,
-  Building2,
-  KeyRound,
-  MapPin,
-  PlusCircle,
-} from "lucide-react";
-
-const navItems = [
-  {
-    name: "Home",
-    href: "/",
-    icon: House,
-  },
-  {
-    name: "Buy",
-    href: "/buy",
-    icon: Building2,
-  },
-  {
-    name: "Rent",
-    href: "/rent",
-    icon: KeyRound,
-  },
-  {
-    name: "Map",
-    href: "/map",
-    icon: MapPin,
-  },
-  {
-    name: "List",
-    label: "List Property",
-    href: "/list-property",
-    icon: PlusCircle,
-  },
+const navigation = [
+  { label: "Home", href: "/" },
+  { label: "Buy", href: "/buy" },
+  { label: "Rent", href: "/rent" },
+  { label: "Map", href: "/map" },
 ];
 
 export default function Header() {
-  const pathname = usePathname();
-
-  const isActive = (href: string) => {
-    if (href === "/") return pathname === "/";
-    return pathname === href || pathname.startsWith(href + "/");
-  };
-
   return (
-    <>
-      {/* Desktop + Mobile Top Header */}
-      <header className="sticky top-0 z-50 border-b border-gray-200 bg-white">
+    <header className="sticky top-0 z-40 border-b border-gray-100 bg-white">
+      <div className="mx-auto flex h-15 max-w-7xl items-center justify-between px-4 sm:h-20">
+        <Link href="/" className="flex items-center gap-1">
+          <span className="text-2xl font-extrabold tracking-tight text-gray-200">
+            Home
+          </span>
+          <span className="-ml-1 text-2xl font-extrabold tracking-tight text-blue-600">
+            Trust
+          </span>
+        </Link>
 
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
+        <nav className="hidden items-center gap-8 md:flex">
+          {navigation.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-sm font-semibold text-gray-600 hover:text-blue-600"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
 
-          {/* Logo */}
-          <Link href="/" className="text-2xl font-extrabold tracking-tight">
-            Home<span className="text-blue-600">Trust</span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden items-center gap-7 md:flex">
-
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              const active = isActive(item.href);
-
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  aria-current={active ? "page" : undefined}
-                  className={`flex items-center gap-2 text-sm font-semibold transition ${
-                    active
-                      ? "text-blue-600"
-                      : "text-gray-600 hover:text-blue-600"
-                  }`}
-                >
-                  <Icon size={19} />
-                  {item.label || item.name}
-                </Link>
-              );
-            })}
-
-          </nav>
-
-          {/* Mobile Header Right Icon */}
+        <div className="flex items-center gap-4">
           <Link
             href="/map"
-            className="rounded-full p-2 text-gray-700 hover:bg-gray-100 md:hidden"
-            aria-label="Explore map"
+            aria-label="Explore property locations"
+            className="text-gray-700 hover:text-blue-600"
           >
             <MapPin size={23} />
           </Link>
 
-          {/* Desktop User Button */}
           <Link
-            href="/list-property"
-            className="hidden rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 md:block"
+            href="/login"
+            className="hidden rounded-lg px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 md:block"
           >
-            + List Property
+            Login
           </Link>
 
+          <Link
+            href="/list-property"
+            className="hidden items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-bold text-white hover:bg-blue-700 md:flex"
+          >
+            <Building2 size={17} />
+            List Property
+          </Link>
         </div>
-      </header>
-
-      {/* Mobile Bottom Navigation */}
-      <nav
-        aria-label="Mobile navigation"
-        className="fixed inset-x-0 bottom-0 z-50 border-t border-gray-200 bg-white pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_15px_rgba(0,0,0,0.05)] md:hidden"
-      >
-        <div className="mx-auto grid h-16 max-w-lg grid-cols-5">
-
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const active = isActive(item.href);
-
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={active ? "page" : undefined}
-                className={`flex flex-col items-center justify-center gap-1 transition ${
-                  active
-                    ? "text-blue-600"
-                    : "text-gray-500 hover:text-gray-900"
-                }`}
-              >
-                <Icon
-                  size={23}
-                  strokeWidth={active ? 2.6 : 1.8}
-                />
-
-                <span
-                  className={`text-[10px] ${
-                    active ? "font-bold" : "font-medium"
-                  }`}
-                >
-                  {item.name}
-                </span>
-
-              </Link>
-            );
-          })}
-
-        </div>
-      </nav>
-    </>
+      </div>
+    </header>
   );
 }
