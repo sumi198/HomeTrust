@@ -1,15 +1,11 @@
+
 // import type { Metadata } from "next";
-// import Header from "@/components/layout/Header";
-// import Footer from "@/components/layout/Footer";
 // import "./globals.css";
+// import SiteShell from "@/components/layout/SiteShell";
 
 // export const metadata: Metadata = {
-//   title: {
-//     default: "HomeTrust | Find Your Dream Property",
-//     template: "%s | HomeTrust",
-//   },
-//   description:
-//     "Buy, rent and discover properties with HomeTrust. Find your perfect home.",
+//   title: "HomeTrust",
+//   description: "Find your perfect property with HomeTrust.",
 // };
 
 // export default function RootLayout({
@@ -19,10 +15,8 @@
 // }>) {
 //   return (
 //     <html lang="en">
-//       <body className="min-h-screen bg-white antialiased">
-//         <Header />
-//         <main>{children}</main>
-//         <Footer />
+//       <body>
+//         <SiteShell>{children}</SiteShell>
 //       </body>
 //     </html>
 //   );
@@ -30,23 +24,13 @@
 
 
 
-
-
-
-
 import type { Metadata } from "next";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import MobileNavigation from "@/components/layout/MobileNavigation";
 import "./globals.css";
+import SiteShell from "@/components/layout/SiteShell";
 
 export const metadata: Metadata = {
-  title: {
-    default: "HomeTrust | Find Your Dream Property",
-    template: "%s | HomeTrust",
-  },
-  description:
-    "Buy, rent and discover properties with HomeTrust.",
+  title: "HomeTrust",
+  description: "Find your perfect property with HomeTrust.",
 };
 
 export default function RootLayout({
@@ -56,11 +40,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-white antialiased">
-        <Header />
-        <main className="pb-16 md:pb-0">{children}</main>
-        <Footer />
-        <MobileNavigation />
+      <body>
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );
