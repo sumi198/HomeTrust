@@ -86,3 +86,7 @@ PS E:\Git_HomeTrust\HomeTrust> git commit -m "yahan apna message likhein"
 PS E:\Git_HomeTrust\HomeTrust> git push origin main
 
 
+# work on project follow these steps 
+
+
+
