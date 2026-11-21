@@ -76,8 +76,13 @@ hometrust@0.1.0 dev E:\Git_HomeTrust\HomeTrust
 
  # Git & GitHub
 PS E:\Testing\2-nov> git clone https://github.com/sumi198/HomeTrust.git
+
 PS E:\Git_HomeTrust\HomeTrust> git status    
+
 PS E:\Git_HomeTrust\HomeTrust> git add .  
+
 PS E:\Git_HomeTrust\HomeTrust> git commit -m "yahan apna message likhein"
+
 PS E:\Git_HomeTrust\HomeTrust> git push origin main
+
 
