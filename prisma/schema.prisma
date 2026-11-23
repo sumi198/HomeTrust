@@ -1,0 +1,144 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UserRole {
+  CUSTOMER
+  SELLER
+  ADMIN
+}
+
+enum PropertyPurpose {
+  SALE
+  RENT
+}
+
+enum PropertyType {
+  APARTMENT
+  VILLA
+  HOUSE
+  PLOT
+  COMMERCIAL
+}
+
+enum PropertyStatus {
+  DRAFT
+  PENDING
+  APPROVED
+  REJECTED
+  SOLD
+  RENTED
+}
+
+enum EnquiryStatus {
+  NEW
+  CONTACTED
+  CLOSED
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String?
+  email        String   @unique
+  passwordHash String?
+  phone        String?
+  role         UserRole @default(CUSTOMER)
+
+  properties   Property[]
+  enquiries    Enquiry[]
+  favorites    Favorite[]
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Property {
+  id          String          @id @default(cuid())
+  title       String
+  slug        String          @unique
+  description String
+
+  purpose     PropertyPurpose
+  type        PropertyType
+  status      PropertyStatus  @default(PENDING)
+
+  price       Decimal         @db.Decimal(14, 2)
+  areaSqFt    Int?
+  bedrooms    Int?
+  bathrooms   Int?
+
+  addressLine String?
+  locality    String?
+  city        String
+  state       String
+  pincode     String?
+  country     String          @default("India")
+
+  latitude    Float?
+  longitude   Float?
+
+  sellerId    String
+  seller      User            @relation(fields: [sellerId], references: [id], onDelete: Restrict)
+
+  images      PropertyImage[]
+  enquiries   Enquiry[]
+  favorites   Favorite[]
+
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  @@index([status, purpose, city])
+  @@index([sellerId])
+}
+
+model PropertyImage {
+  id         String   @id @default(cuid())
+  url        String
+  publicId   String?
+  isFeatured Boolean  @default(false)
+  position   Int      @default(0)
+
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  createdAt  DateTime @default(now())
+
+  @@index([propertyId])
+}
+
+model Enquiry {
+  id         String        @id @default(cuid())
+  message    String
+  status     EnquiryStatus @default(NEW)
+
+  customerId String
+  customer   User          @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  propertyId String
+  property   Property      @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+
+  @@index([customerId])
+  @@index([propertyId])
+}
+
+model Favorite {
+  id         String   @id @default(cuid())
+
+  customerId String
+  customer   User     @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  createdAt  DateTime @default(now())
+
+  @@unique([customerId, propertyId])
+}
