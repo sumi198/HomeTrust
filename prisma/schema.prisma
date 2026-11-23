@@ -67,6 +67,8 @@ model Property {
   type        PropertyType
   status      PropertyStatus  @default(PENDING)
 
+  featured Boolean @default(false)
+
   price       Decimal         @db.Decimal(14, 2)
   areaSqFt    Int?
   bedrooms    Int?

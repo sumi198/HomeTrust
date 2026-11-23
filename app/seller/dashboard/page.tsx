@@ -1,14 +1,18 @@
 
 import Link from "next/link";
+import { requireRole } from "@/lib/permission";
+import LogoutButton from "@/components/auth/LogoutButton";
 
-export default function SellerDashboardPage() {
+export default async function SellerDashboardPage() {
+  await requireRole("SELLER");
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-12">
       <h1 className="text-3xl font-bold">Seller Dashboard</h1>
       <p className="mt-3 text-gray-500">
         Manage your property listings from here.
       </p>
-
+<LogoutButton />
       <Link
         href="/list-property"
         className="mt-6 inline-flex rounded-xl bg-emerald-700 px-6 py-3 font-semibold text-white"

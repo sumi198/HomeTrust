@@ -7,10 +7,11 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import PropertyGrid from "@/components/property/PropertyGrid";
-import { properties } from "@/data/properties";
+// import { properties } from "@/data/properties";
+import { getFeaturedProperties } from "@/lib/services/property.service";
 
-export default function HomePage() {
-  const featuredProperties = properties.filter((p) => p.featured);
+export default async function HomePage() {
+  const featuredProperties = await getFeaturedProperties();
 
   return (
     <>

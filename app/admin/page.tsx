@@ -7,6 +7,8 @@ import {
   PlusCircle,
 } from "lucide-react";
 
+import LogoutButton from "@/components/auth/LogoutButton";
+
 const items = [
   {
     title: "Manage Properties",
@@ -43,7 +45,7 @@ export default function AdminDashboardPage() {
       <p className="mt-2 text-gray-500">
         Welcome to your HomeTrust administration panel.
       </p>
-
+<LogoutButton />
       <div className="mt-8 grid gap-5 sm:grid-cols-2">
         {items.map((item) => {
           const Icon = item.icon;

@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { MapPin, Navigation } from "lucide-react";
-import { properties } from "@/data/properties";
+// import { properties } from "@/data/properties";
+import { getPublicProperties } from "@/lib/services/property.service";
 
-export default function MapPage() {
+export default async function MapPage() {
+  const properties = await getPublicProperties();
+
   return (
     <section className="mx-auto max-w-7xl px-4 py-12">
       <p className="font-bold text-emerald-700">HOMETRUST / MAP</p>

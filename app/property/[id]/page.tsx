@@ -16,6 +16,8 @@ import {
   properties,
 } from "@/data/properties";
 
+import { getPublicPropertyById } from "@/lib/services/property.service";
+
 type Props = {
   params: Promise<{ id: string }>;
 };
@@ -50,7 +52,7 @@ function PropertyLoading() {
 async function PropertyDetails({ params }: Props) {
   const { id } = await params;
 
-  const property = getPropertyById(id);
+  const property = await getPublicPropertyById(id);
 
   if (!property) {
     notFound();

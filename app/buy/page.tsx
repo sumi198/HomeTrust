@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
 import PropertyGrid from "@/components/property/PropertyGrid";
-import { properties } from "@/data/properties";
+// import { properties } from "@/data/properties";
+import { getPublicProperties } from "@/lib/services/property.service";
 
 export const metadata: Metadata = {
   title: "Buy Property",
   description: "Explore properties available for purchase.",
 };
 
-export default function BuyPage() {
-  const buyProperties = properties.filter(
-    (property) => property.purpose === "SALE"
-  );
+export default async function BuyPage() {
+  const buyProperties = await getPublicProperties("SALE");
 
   return (
     <>
@@ -27,6 +26,7 @@ export default function BuyPage() {
       </section>
 
       <PropertyGrid properties={buyProperties} title="Properties for Sale" />
+     
     </>
   );
 }

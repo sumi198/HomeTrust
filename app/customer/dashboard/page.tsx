@@ -1,5 +1,6 @@
 
 import Link from "next/link";
+import LogoutButton from "@/components/auth/LogoutButton";
 
 export default function CustomerDashboardPage() {
   return (
@@ -8,7 +9,7 @@ export default function CustomerDashboardPage() {
       <p className="mt-3 text-gray-500">
         Welcome to your HomeTrust customer account.
       </p>
-
+<LogoutButton />
       <Link
         href="/buy"
         className="mt-6 inline-flex rounded-xl bg-emerald-700 px-6 py-3 font-semibold text-white"

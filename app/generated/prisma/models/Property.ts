@@ -52,6 +52,7 @@ export type PropertyMinAggregateOutputType = {
   purpose: $Enums.PropertyPurpose | null
   type: $Enums.PropertyType | null
   status: $Enums.PropertyStatus | null
+  featured: boolean | null
   price: runtime.Decimal | null
   areaSqFt: number | null
   bedrooms: number | null
@@ -77,6 +78,7 @@ export type PropertyMaxAggregateOutputType = {
   purpose: $Enums.PropertyPurpose | null
   type: $Enums.PropertyType | null
   status: $Enums.PropertyStatus | null
+  featured: boolean | null
   price: runtime.Decimal | null
   areaSqFt: number | null
   bedrooms: number | null
@@ -102,6 +104,7 @@ export type PropertyCountAggregateOutputType = {
   purpose: number
   type: number
   status: number
+  featured: number
   price: number
   areaSqFt: number
   bedrooms: number
@@ -147,6 +150,7 @@ export type PropertyMinAggregateInputType = {
   purpose?: true
   type?: true
   status?: true
+  featured?: true
   price?: true
   areaSqFt?: true
   bedrooms?: true
@@ -172,6 +176,7 @@ export type PropertyMaxAggregateInputType = {
   purpose?: true
   type?: true
   status?: true
+  featured?: true
   price?: true
   areaSqFt?: true
   bedrooms?: true
@@ -197,6 +202,7 @@ export type PropertyCountAggregateInputType = {
   purpose?: true
   type?: true
   status?: true
+  featured?: true
   price?: true
   areaSqFt?: true
   bedrooms?: true
@@ -309,6 +315,7 @@ export type PropertyGroupByOutputType = {
   purpose: $Enums.PropertyPurpose
   type: $Enums.PropertyType
   status: $Enums.PropertyStatus
+  featured: boolean
   price: runtime.Decimal
   areaSqFt: number | null
   bedrooms: number | null
@@ -357,6 +364,7 @@ export type PropertyWhereInput = {
   purpose?: Prisma.EnumPropertyPurposeFilter<"Property"> | $Enums.PropertyPurpose
   type?: Prisma.EnumPropertyTypeFilter<"Property"> | $Enums.PropertyType
   status?: Prisma.EnumPropertyStatusFilter<"Property"> | $Enums.PropertyStatus
+  featured?: Prisma.BoolFilter<"Property"> | boolean
   price?: Prisma.DecimalFilter<"Property"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: Prisma.IntNullableFilter<"Property"> | number | null
   bedrooms?: Prisma.IntNullableFilter<"Property"> | number | null
@@ -386,6 +394,7 @@ export type PropertyOrderByWithRelationInput = {
   purpose?: Prisma.SortOrder
   type?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  featured?: Prisma.SortOrder
   price?: Prisma.SortOrder
   areaSqFt?: Prisma.SortOrderInput | Prisma.SortOrder
   bedrooms?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -418,6 +427,7 @@ export type PropertyWhereUniqueInput = Prisma.AtLeast<{
   purpose?: Prisma.EnumPropertyPurposeFilter<"Property"> | $Enums.PropertyPurpose
   type?: Prisma.EnumPropertyTypeFilter<"Property"> | $Enums.PropertyType
   status?: Prisma.EnumPropertyStatusFilter<"Property"> | $Enums.PropertyStatus
+  featured?: Prisma.BoolFilter<"Property"> | boolean
   price?: Prisma.DecimalFilter<"Property"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: Prisma.IntNullableFilter<"Property"> | number | null
   bedrooms?: Prisma.IntNullableFilter<"Property"> | number | null
@@ -447,6 +457,7 @@ export type PropertyOrderByWithAggregationInput = {
   purpose?: Prisma.SortOrder
   type?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  featured?: Prisma.SortOrder
   price?: Prisma.SortOrder
   areaSqFt?: Prisma.SortOrderInput | Prisma.SortOrder
   bedrooms?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -480,6 +491,7 @@ export type PropertyScalarWhereWithAggregatesInput = {
   purpose?: Prisma.EnumPropertyPurposeWithAggregatesFilter<"Property"> | $Enums.PropertyPurpose
   type?: Prisma.EnumPropertyTypeWithAggregatesFilter<"Property"> | $Enums.PropertyType
   status?: Prisma.EnumPropertyStatusWithAggregatesFilter<"Property"> | $Enums.PropertyStatus
+  featured?: Prisma.BoolWithAggregatesFilter<"Property"> | boolean
   price?: Prisma.DecimalWithAggregatesFilter<"Property"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: Prisma.IntNullableWithAggregatesFilter<"Property"> | number | null
   bedrooms?: Prisma.IntNullableWithAggregatesFilter<"Property"> | number | null
@@ -505,6 +517,7 @@ export type PropertyCreateInput = {
   purpose: $Enums.PropertyPurpose
   type: $Enums.PropertyType
   status?: $Enums.PropertyStatus
+  featured?: boolean
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: number | null
   bedrooms?: number | null
@@ -533,6 +546,7 @@ export type PropertyUncheckedCreateInput = {
   purpose: $Enums.PropertyPurpose
   type: $Enums.PropertyType
   status?: $Enums.PropertyStatus
+  featured?: boolean
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: number | null
   bedrooms?: number | null
@@ -561,6 +575,7 @@ export type PropertyUpdateInput = {
   purpose?: Prisma.EnumPropertyPurposeFieldUpdateOperationsInput | $Enums.PropertyPurpose
   type?: Prisma.EnumPropertyTypeFieldUpdateOperationsInput | $Enums.PropertyType
   status?: Prisma.EnumPropertyStatusFieldUpdateOperationsInput | $Enums.PropertyStatus
+  featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   bedrooms?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -589,6 +604,7 @@ export type PropertyUncheckedUpdateInput = {
   purpose?: Prisma.EnumPropertyPurposeFieldUpdateOperationsInput | $Enums.PropertyPurpose
   type?: Prisma.EnumPropertyTypeFieldUpdateOperationsInput | $Enums.PropertyType
   status?: Prisma.EnumPropertyStatusFieldUpdateOperationsInput | $Enums.PropertyStatus
+  featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   bedrooms?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -617,6 +633,7 @@ export type PropertyCreateManyInput = {
   purpose: $Enums.PropertyPurpose
   type: $Enums.PropertyType
   status?: $Enums.PropertyStatus
+  featured?: boolean
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: number | null
   bedrooms?: number | null
@@ -642,6 +659,7 @@ export type PropertyUpdateManyMutationInput = {
   purpose?: Prisma.EnumPropertyPurposeFieldUpdateOperationsInput | $Enums.PropertyPurpose
   type?: Prisma.EnumPropertyTypeFieldUpdateOperationsInput | $Enums.PropertyType
   status?: Prisma.EnumPropertyStatusFieldUpdateOperationsInput | $Enums.PropertyStatus
+  featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   bedrooms?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -666,6 +684,7 @@ export type PropertyUncheckedUpdateManyInput = {
   purpose?: Prisma.EnumPropertyPurposeFieldUpdateOperationsInput | $Enums.PropertyPurpose
   type?: Prisma.EnumPropertyTypeFieldUpdateOperationsInput | $Enums.PropertyType
   status?: Prisma.EnumPropertyStatusFieldUpdateOperationsInput | $Enums.PropertyStatus
+  featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   bedrooms?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -701,6 +720,7 @@ export type PropertyCountOrderByAggregateInput = {
   purpose?: Prisma.SortOrder
   type?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  featured?: Prisma.SortOrder
   price?: Prisma.SortOrder
   areaSqFt?: Prisma.SortOrder
   bedrooms?: Prisma.SortOrder
@@ -735,6 +755,7 @@ export type PropertyMaxOrderByAggregateInput = {
   purpose?: Prisma.SortOrder
   type?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  featured?: Prisma.SortOrder
   price?: Prisma.SortOrder
   areaSqFt?: Prisma.SortOrder
   bedrooms?: Prisma.SortOrder
@@ -760,6 +781,7 @@ export type PropertyMinOrderByAggregateInput = {
   purpose?: Prisma.SortOrder
   type?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  featured?: Prisma.SortOrder
   price?: Prisma.SortOrder
   areaSqFt?: Prisma.SortOrder
   bedrooms?: Prisma.SortOrder
@@ -845,6 +867,10 @@ export type EnumPropertyStatusFieldUpdateOperationsInput = {
   set?: $Enums.PropertyStatus
 }
 
+export type BoolFieldUpdateOperationsInput = {
+  set?: boolean
+}
+
 export type DecimalFieldUpdateOperationsInput = {
   set?: runtime.Decimal | runtime.DecimalJsLike | number | string
   increment?: runtime.Decimal | runtime.DecimalJsLike | number | string
@@ -919,6 +945,7 @@ export type PropertyCreateWithoutSellerInput = {
   purpose: $Enums.PropertyPurpose
   type: $Enums.PropertyType
   status?: $Enums.PropertyStatus
+  featured?: boolean
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: number | null
   bedrooms?: number | null
@@ -946,6 +973,7 @@ export type PropertyUncheckedCreateWithoutSellerInput = {
   purpose: $Enums.PropertyPurpose
   type: $Enums.PropertyType
   status?: $Enums.PropertyStatus
+  featured?: boolean
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: number | null
   bedrooms?: number | null
@@ -1002,6 +1030,7 @@ export type PropertyScalarWhereInput = {
   purpose?: Prisma.EnumPropertyPurposeFilter<"Property"> | $Enums.PropertyPurpose
   type?: Prisma.EnumPropertyTypeFilter<"Property"> | $Enums.PropertyType
   status?: Prisma.EnumPropertyStatusFilter<"Property"> | $Enums.PropertyStatus
+  featured?: Prisma.BoolFilter<"Property"> | boolean
   price?: Prisma.DecimalFilter<"Property"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: Prisma.IntNullableFilter<"Property"> | number | null
   bedrooms?: Prisma.IntNullableFilter<"Property"> | number | null
@@ -1027,6 +1056,7 @@ export type PropertyCreateWithoutImagesInput = {
   purpose: $Enums.PropertyPurpose
   type: $Enums.PropertyType
   status?: $Enums.PropertyStatus
+  featured?: boolean
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: number | null
   bedrooms?: number | null
@@ -1054,6 +1084,7 @@ export type PropertyUncheckedCreateWithoutImagesInput = {
   purpose: $Enums.PropertyPurpose
   type: $Enums.PropertyType
   status?: $Enums.PropertyStatus
+  featured?: boolean
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: number | null
   bedrooms?: number | null
@@ -1097,6 +1128,7 @@ export type PropertyUpdateWithoutImagesInput = {
   purpose?: Prisma.EnumPropertyPurposeFieldUpdateOperationsInput | $Enums.PropertyPurpose
   type?: Prisma.EnumPropertyTypeFieldUpdateOperationsInput | $Enums.PropertyType
   status?: Prisma.EnumPropertyStatusFieldUpdateOperationsInput | $Enums.PropertyStatus
+  featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   bedrooms?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1124,6 +1156,7 @@ export type PropertyUncheckedUpdateWithoutImagesInput = {
   purpose?: Prisma.EnumPropertyPurposeFieldUpdateOperationsInput | $Enums.PropertyPurpose
   type?: Prisma.EnumPropertyTypeFieldUpdateOperationsInput | $Enums.PropertyType
   status?: Prisma.EnumPropertyStatusFieldUpdateOperationsInput | $Enums.PropertyStatus
+  featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   bedrooms?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1151,6 +1184,7 @@ export type PropertyCreateWithoutEnquiriesInput = {
   purpose: $Enums.PropertyPurpose
   type: $Enums.PropertyType
   status?: $Enums.PropertyStatus
+  featured?: boolean
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: number | null
   bedrooms?: number | null
@@ -1178,6 +1212,7 @@ export type PropertyUncheckedCreateWithoutEnquiriesInput = {
   purpose: $Enums.PropertyPurpose
   type: $Enums.PropertyType
   status?: $Enums.PropertyStatus
+  featured?: boolean
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: number | null
   bedrooms?: number | null
@@ -1221,6 +1256,7 @@ export type PropertyUpdateWithoutEnquiriesInput = {
   purpose?: Prisma.EnumPropertyPurposeFieldUpdateOperationsInput | $Enums.PropertyPurpose
   type?: Prisma.EnumPropertyTypeFieldUpdateOperationsInput | $Enums.PropertyType
   status?: Prisma.EnumPropertyStatusFieldUpdateOperationsInput | $Enums.PropertyStatus
+  featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   bedrooms?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1248,6 +1284,7 @@ export type PropertyUncheckedUpdateWithoutEnquiriesInput = {
   purpose?: Prisma.EnumPropertyPurposeFieldUpdateOperationsInput | $Enums.PropertyPurpose
   type?: Prisma.EnumPropertyTypeFieldUpdateOperationsInput | $Enums.PropertyType
   status?: Prisma.EnumPropertyStatusFieldUpdateOperationsInput | $Enums.PropertyStatus
+  featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   bedrooms?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1275,6 +1312,7 @@ export type PropertyCreateWithoutFavoritesInput = {
   purpose: $Enums.PropertyPurpose
   type: $Enums.PropertyType
   status?: $Enums.PropertyStatus
+  featured?: boolean
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: number | null
   bedrooms?: number | null
@@ -1302,6 +1340,7 @@ export type PropertyUncheckedCreateWithoutFavoritesInput = {
   purpose: $Enums.PropertyPurpose
   type: $Enums.PropertyType
   status?: $Enums.PropertyStatus
+  featured?: boolean
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: number | null
   bedrooms?: number | null
@@ -1345,6 +1384,7 @@ export type PropertyUpdateWithoutFavoritesInput = {
   purpose?: Prisma.EnumPropertyPurposeFieldUpdateOperationsInput | $Enums.PropertyPurpose
   type?: Prisma.EnumPropertyTypeFieldUpdateOperationsInput | $Enums.PropertyType
   status?: Prisma.EnumPropertyStatusFieldUpdateOperationsInput | $Enums.PropertyStatus
+  featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   bedrooms?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1372,6 +1412,7 @@ export type PropertyUncheckedUpdateWithoutFavoritesInput = {
   purpose?: Prisma.EnumPropertyPurposeFieldUpdateOperationsInput | $Enums.PropertyPurpose
   type?: Prisma.EnumPropertyTypeFieldUpdateOperationsInput | $Enums.PropertyType
   status?: Prisma.EnumPropertyStatusFieldUpdateOperationsInput | $Enums.PropertyStatus
+  featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   bedrooms?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1399,6 +1440,7 @@ export type PropertyCreateManySellerInput = {
   purpose: $Enums.PropertyPurpose
   type: $Enums.PropertyType
   status?: $Enums.PropertyStatus
+  featured?: boolean
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: number | null
   bedrooms?: number | null
@@ -1423,6 +1465,7 @@ export type PropertyUpdateWithoutSellerInput = {
   purpose?: Prisma.EnumPropertyPurposeFieldUpdateOperationsInput | $Enums.PropertyPurpose
   type?: Prisma.EnumPropertyTypeFieldUpdateOperationsInput | $Enums.PropertyType
   status?: Prisma.EnumPropertyStatusFieldUpdateOperationsInput | $Enums.PropertyStatus
+  featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   bedrooms?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1450,6 +1493,7 @@ export type PropertyUncheckedUpdateWithoutSellerInput = {
   purpose?: Prisma.EnumPropertyPurposeFieldUpdateOperationsInput | $Enums.PropertyPurpose
   type?: Prisma.EnumPropertyTypeFieldUpdateOperationsInput | $Enums.PropertyType
   status?: Prisma.EnumPropertyStatusFieldUpdateOperationsInput | $Enums.PropertyStatus
+  featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   bedrooms?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1477,6 +1521,7 @@ export type PropertyUncheckedUpdateManyWithoutSellerInput = {
   purpose?: Prisma.EnumPropertyPurposeFieldUpdateOperationsInput | $Enums.PropertyPurpose
   type?: Prisma.EnumPropertyTypeFieldUpdateOperationsInput | $Enums.PropertyType
   status?: Prisma.EnumPropertyStatusFieldUpdateOperationsInput | $Enums.PropertyStatus
+  featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   areaSqFt?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   bedrooms?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -1550,6 +1595,7 @@ export type PropertySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   purpose?: boolean
   type?: boolean
   status?: boolean
+  featured?: boolean
   price?: boolean
   areaSqFt?: boolean
   bedrooms?: boolean
@@ -1580,6 +1626,7 @@ export type PropertySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   purpose?: boolean
   type?: boolean
   status?: boolean
+  featured?: boolean
   price?: boolean
   areaSqFt?: boolean
   bedrooms?: boolean
@@ -1606,6 +1653,7 @@ export type PropertySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   purpose?: boolean
   type?: boolean
   status?: boolean
+  featured?: boolean
   price?: boolean
   areaSqFt?: boolean
   bedrooms?: boolean
@@ -1632,6 +1680,7 @@ export type PropertySelectScalar = {
   purpose?: boolean
   type?: boolean
   status?: boolean
+  featured?: boolean
   price?: boolean
   areaSqFt?: boolean
   bedrooms?: boolean
@@ -1649,7 +1698,7 @@ export type PropertySelectScalar = {
   updatedAt?: boolean
 }
 
-export type PropertyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "slug" | "description" | "purpose" | "type" | "status" | "price" | "areaSqFt" | "bedrooms" | "bathrooms" | "addressLine" | "locality" | "city" | "state" | "pincode" | "country" | "latitude" | "longitude" | "sellerId" | "createdAt" | "updatedAt", ExtArgs["result"]["property"]>
+export type PropertyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "slug" | "description" | "purpose" | "type" | "status" | "featured" | "price" | "areaSqFt" | "bedrooms" | "bathrooms" | "addressLine" | "locality" | "city" | "state" | "pincode" | "country" | "latitude" | "longitude" | "sellerId" | "createdAt" | "updatedAt", ExtArgs["result"]["property"]>
 export type PropertyInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   seller?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   images?: boolean | Prisma.Property$imagesArgs<ExtArgs>
@@ -1680,6 +1729,7 @@ export type $PropertyPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     purpose: $Enums.PropertyPurpose
     type: $Enums.PropertyType
     status: $Enums.PropertyStatus
+    featured: boolean
     price: runtime.Decimal
     areaSqFt: number | null
     bedrooms: number | null
@@ -2129,6 +2179,7 @@ export interface PropertyFieldRefs {
   readonly purpose: Prisma.FieldRef<"Property", 'PropertyPurpose'>
   readonly type: Prisma.FieldRef<"Property", 'PropertyType'>
   readonly status: Prisma.FieldRef<"Property", 'PropertyStatus'>
+  readonly featured: Prisma.FieldRef<"Property", 'Boolean'>
   readonly price: Prisma.FieldRef<"Property", 'Decimal'>
   readonly areaSqFt: Prisma.FieldRef<"Property", 'Int'>
   readonly bedrooms: Prisma.FieldRef<"Property", 'Int'>

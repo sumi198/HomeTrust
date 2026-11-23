@@ -96,6 +96,7 @@ export const PropertyScalarFieldEnum = {
   purpose: 'purpose',
   type: 'type',
   status: 'status',
+  featured: 'featured',
   price: 'price',
   areaSqFt: 'areaSqFt',
   bedrooms: 'bedrooms',

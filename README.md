@@ -1,6 +1,18 @@
 # Getting Started Web App 
 # HomeTrust Next Js 
 
+$env:ADMIN_EMAIL="admin@hometrust.com"
+$env:ADMIN_PASSWORD="243439!Password123!"
+
+pnpm db:admin
+
+Remove-Item Env:ADMIN_EMAIL
+Remove-Item Env:ADMIN_PASSWORD
+
+
+
+
+
 ## PS E:\Testing\2-nov> git clone https://github.com/sumi198/HomeTrust.git
 
 Cloning into 'HomeTrust'...

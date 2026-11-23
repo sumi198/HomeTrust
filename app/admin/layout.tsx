@@ -1,5 +1,18 @@
+import { Suspense } from "react";
+import { connection } from "next/server";
+import { requireRole } from "@/lib/permission";
 
-import Link from "next/link";
+async function AdminAuth({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  // Run authentication at request time, inside Suspense.
+  await connection();
+  await requireRole("ADMIN");
+
+  return <>{children}</>;
+}
 
 export default function AdminLayout({
   children,
@@ -7,24 +20,8 @@ export default function AdminLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="min-h-screen bg-gray-100 md:flex">
-      <aside className="w-full bg-gray-950 p-5 text-white md:min-h-screen md:w-64">
-        <Link href="/admin" className="text-2xl font-extrabold">
-          HomeTrust Admin
-        </Link>
-
-        <nav className="mt-8 flex flex-wrap gap-4 text-sm md:flex-col">
-          <Link href="/admin">Dashboard</Link>
-          <Link href="/admin/properties">Properties</Link>
-          <Link href="/admin/properties/new">Add Property</Link>
-          <Link href="/admin/users">Users</Link>
-          <Link href="/admin/enquiries">Enquiries</Link>
-        </nav>
-      </aside>
-
-      <main className="min-w-0 flex-1">
-        {children}
-      </main>
-    </div>
+    <Suspense fallback={<div className="p-6">Loading admin...</div>}>
+      <AdminAuth>{children}</AdminAuth>
+    </Suspense>
   );
 }
